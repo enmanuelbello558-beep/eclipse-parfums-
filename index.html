@@ -24,41 +24,30 @@
 
         body {
             background-color: var(--bg-color);
-            color: #f0f0f2;
+            color: var(--text-main, #f0f0f2);
             min-height: 100vh;
-            padding-bottom: 110px;
-        }
-
-        .dev-credit {
-            position: absolute;
-            top: 12px;
-            left: 15px;
-            font-size: 0.65rem;
-            color: var(--gold-light);
-            opacity: 0.7;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            font-weight: 500;
+            padding-bottom: 90px;
         }
 
         header {
             text-align: center;
-            padding: 55px 20px 25px;
+            padding: 30px 20px 25px;
             background: linear-gradient(to bottom, #16161c, var(--bg-color));
             border-bottom: 1px solid var(--border-gold);
-            position: relative;
         }
 
+        /* Título unificado, más grande, brillante y lujoso */
         h1 {
             font-family: 'Great Vibes', cursive;
-            font-size: 3rem;
+            font-size: 3.5rem;
             font-weight: 400;
-            line-height: 1.2;
+            line-height: 1.1;
             margin: 0 0 8px 0;
             background: linear-gradient(135deg, #fffae0 0%, #ffdf6d 40%, #e6ca65 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 30px rgba(255, 223, 109, 0.4);
+            text-shadow: 0 0 30px rgba(255, 223, 109, 0.5);
+            filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.6));
         }
 
         .subtitle {
@@ -68,6 +57,7 @@
             text-transform: uppercase;
             font-weight: 600;
             opacity: 0.95;
+            text-shadow: 0 0 10px rgba(255, 242, 178, 0.3);
         }
 
         .filters {
@@ -103,7 +93,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
             gap: 16px;
-            padding: 15px 15px 30px 15px;
+            padding: 15px;
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -127,44 +117,36 @@
         .image-container {
             width: 100%;
             height: 190px;
-            background-color: #0c0c0f;
+            background-color: #1a1a22;
             position: relative;
             overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 10px;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
-            flex-shrink: 0;
         }
 
         .image-container img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             transition: transform 0.5s ease;
-            will-change: transform;
         }
 
         .card:hover .image-container img {
-            transform: scale(1.08);
+            transform: scale(1.05);
         }
 
         .badge-gender {
             position: absolute;
             top: 10px;
             left: 10px;
-            background: rgba(8, 8, 10, 0.85);
+            background: rgba(8, 8, 10, 0.8);
             border: 1px solid var(--border-gold);
             color: var(--gold-light);
-            font-size: 0.62rem;
-            padding: 3px 8px;
+            font-size: 0.65rem;
+            padding: 4px 10px;
             border-radius: 20px;
             text-transform: uppercase;
             letter-spacing: 1px;
             font-weight: 700;
             backdrop-filter: blur(5px);
-            z-index: 2;
         }
 
         .card-content {
@@ -225,7 +207,6 @@
             display: flex;
             align-items: center;
             gap: 6px;
-            height: 32px;
         }
 
         .qty-btn {
@@ -331,7 +312,6 @@
 <body>
 
     <header>
-        <div class="dev-credit">Créditos: Enmanuel Meléndez</div>
         <h1>Eclipse Parfums</h1>
         <div class="subtitle">El secreto de una presencia magnética</div>
     </header>
@@ -354,66 +334,51 @@
 
     <script>
         const products = [
-            // --- CABALLERO (25) ---
-            { id: 1, name: "Bad Boy Extreme", brand: "Carolina Herrera", category: "caballero", usage: "Noche 🌙", price: 35, image: "https://fimgs.net/mdimg/perfume/375x500.75037.jpg" },
-            { id: 2, name: "Stronger With You", brand: "Giorgio Armani", category: "caballero", usage: "Versátil", price: 33, image: "https://fimgs.net/mdimg/perfume/375x500.52332.jpg" },
-            { id: 3, name: "Le Male Le Parfum", brand: "Jean Paul Gaultier", category: "caballero", usage: "Versátil", price: 32, image: "https://fimgs.net/mdimg/perfume/375x500.60745.jpg" },
-            { id: 4, name: "Ultra Male", brand: "Jean Paul Gaultier", category: "caballero", usage: "Noche 🌙", price: 35, image: "https://fimgs.net/mdimg/perfume/375x500.33959.jpg" },
-            { id: 5, name: "Scandal Pour Homme", brand: "Jean Paul Gaultier", category: "caballero", usage: "Noche 🌙", price: 35, image: "https://fimgs.net/mdimg/perfume/375x500.69022.jpg" },
-            { id: 6, name: "Born in Roma Intense", brand: "Valentino", category: "caballero", usage: "Versátil", price: 38, image: "https://fimgs.net/mdimg/perfume/375x500.79585.jpg" },
-            { id: 7, name: "212 VIP Black", brand: "Carolina Herrera", category: "caballero", usage: "Noche 🌙", price: 35, image: "https://fimgs.net/mdimg/perfume/375x500.46114.jpg" },
-            { id: 8, name: "Acqua Di Gio", brand: "Giorgio Armani", category: "caballero", usage: "Día ☀️", price: 32, image: "https://fimgs.net/mdimg/perfume/375x500.410.jpg" },
-            { id: 9, name: "Mandarin Sky (Eclat)", brand: "Armaf", category: "caballero", usage: "Versátil", price: 35, image: "https://fimgs.net/mdimg/perfume/375x500.78768.jpg" },
-            { id: 10, name: "Sauvage Eau de Parfum", brand: "Dior", category: "caballero", usage: "Versátil", price: 40, image: "https://fimgs.net/mdimg/perfume/375x500.31861.jpg" },
-            { id: 11, name: "Bleu de Chanel", brand: "Chanel", category: "caballero", usage: "Versátil", price: 40, image: "https://fimgs.net/mdimg/perfume/375x500.25967.jpg" },
-            { id: 12, name: "Eros Flame", brand: "Versace", category: "caballero", usage: "Versátil", price: 34, image: "https://fimgs.net/mdimg/perfume/375x500.52003.jpg" },
-            { id: 13, name: "Phantom", brand: "Paco Rabanne", category: "caballero", usage: "Versátil", price: 36, image: "https://fimgs.net/mdimg/perfume/375x500.68651.jpg" },
-            { id: 14, name: "1 Million Elixir", brand: "Paco Rabanne", category: "caballero", usage: "Noche 🌙", price: 38, image: "https://fimgs.net/mdimg/perfume/375x500.72477.jpg" },
-            { id: 15, name: "Invictus Victory", brand: "Paco Rabanne", category: "caballero", usage: "Noche 🌙", price: 35, image: "https://fimgs.net/mdimg/perfume/375x500.64808.jpg" },
-            { id: 16, name: "Y Le Parfum", brand: "Yves Saint Laurent", category: "caballero", usage: "Versátil", price: 40, image: "https://fimgs.net/mdimg/perfume/375x500.67154.jpg" },
-            { id: 17, name: "The Most Wanted", brand: "Azzaro", category: "caballero", usage: "Noche 🌙", price: 37, image: "https://fimgs.net/mdimg/perfume/375x500.66299.jpg" },
-            { id: 18, name: "L'Homme Idéal", brand: "Guerlain", category: "caballero", usage: "Versátil", price: 35, image: "https://fimgs.net/mdimg/perfume/375x500.25776.jpg" },
-            { id: 19, name: "Terre d'Hermès", brand: "Hermès", category: "caballero", usage: "Día ☀️", price: 39, image: "https://fimgs.net/mdimg/perfume/375x500.17.jpg" },
-            { id: 20, name: "Dylan Blue", brand: "Versace", category: "caballero", usage: "Versátil", price: 32, image: "https://fimgs.net/mdimg/perfume/375x500.38561.jpg" },
-            { id: 21, name: "Gentleman Reserve Privée", brand: "Givenchy", category: "caballero", usage: "Noche 🌙", price: 38, image: "https://fimgs.net/mdimg/perfume/375x500.72666.jpg" },
-            { id: 22, name: "Boss Bottled Elixir", brand: "Hugo Boss", category: "caballero", usage: "Noche 🌙", price: 36, image: "https://fimgs.net/mdimg/perfume/375x500.85244.jpg" },
-            { id: 23, name: "Polo Blue", brand: "Ralph Lauren", category: "caballero", usage: "Día ☀️", price: 33, image: "https://fimgs.net/mdimg/perfume/375x500.1261.jpg" },
-            { id: 24, name: "K by Dolce & Gabbana", brand: "Dolce & Gabbana", category: "caballero", usage: "Versátil", price: 34, image: "https://fimgs.net/mdimg/perfume/375x500.56230.jpg" },
-            { id: 25, name: "Acqua di Gio Profondo", brand: "Giorgio Armani", category: "caballero", usage: "Día ☀️", price: 38, image: "https://fimgs.net/mdimg/perfume/375x500.60742.jpg" },
-
-            // --- DAMA (25) ---
-            { id: 26, name: "Good Girl Légère", brand: "Carolina Herrera", category: "dama", usage: "Versátil", price: 38, image: "https://fimgs.net/mdimg/perfume/375x500.50554.jpg" },
-            { id: 27, name: "Good Girl Supreme", brand: "Carolina Herrera", category: "dama", usage: "Noche 🌙", price: 40, image: "https://fimgs.net/mdimg/perfume/375x500.63784.jpg" },
-            { id: 28, name: "La Vie Est Belle", brand: "Lancôme", category: "dama", usage: "Versátil", price: 35, image: "https://fimgs.net/mdimg/perfume/375x500.1703.jpg" },
-            { id: 29, name: "Libre Eau de Parfum", brand: "Yves Saint Laurent", category: "dama", usage: "Versátil", price: 38, image: "https://fimgs.net/mdimg/perfume/375x500.56461.jpg" },
-            { id: 30, name: "Black Opium", brand: "Yves Saint Laurent", category: "dama", usage: "Noche 🌙", price: 38, image: "https://fimgs.net/mdimg/perfume/375x500.25324.jpg" },
-            { id: 31, name: "Scandal Le Parfum", brand: "Jean Paul Gaultier", category: "dama", usage: "Noche 🌙", price: 36, image: "https://fimgs.net/mdimg/perfume/375x500.74972.jpg" },
-            { id: 32, name: "Coco Mademoiselle", brand: "Chanel", category: "dama", usage: "Versátil", price: 40, image: "https://fimgs.net/mdimg/perfume/375x500.607.jpg" },
-            { id: 33, name: "J'adore", brand: "Dior", category: "dama", usage: "Versátil", price: 40, image: "https://fimgs.net/mdimg/perfume/375x500.210.jpg" },
-            { id: 34, name: "Bright Crystal", brand: "Versace", category: "dama", usage: "Día ☀️", price: 32, image: "https://fimgs.net/mdimg/perfume/375x500.628.jpg" },
-            { id: 35, name: "Idôle", brand: "Lancôme", category: "dama", usage: "Versátil", price: 35, image: "https://fimgs.net/mdimg/perfume/375x500.55619.jpg" },
-            { id: 36, name: "Mon Paris", brand: "Yves Saint Laurent", category: "dama", usage: "Versátil", price: 36, image: "https://fimgs.net/mdimg/perfume/375x500.38883.jpg" },
-            { id: 37, name: "Si Passione", brand: "Giorgio Armani", category: "dama", usage: "Versátil", price: 37, image: "https://fimgs.net/mdimg/perfume/375x500.48517.jpg" },
-            { id: 38, name: "Chance Eau Tendre", brand: "Chanel", category: "dama", usage: "Día ☀️", price: 40, image: "https://fimgs.net/mdimg/perfume/375x500.8066.jpg" },
-            { id: 39, name: "Alien", brand: "Mugler", category: "dama", usage: "Noche 🌙", price: 38, image: "https://fimgs.net/mdimg/perfume/375x500.707.jpg" },
-            { id: 40, name: "Angel", brand: "Mugler", category: "dama", usage: "Noche 🌙", price: 38, image: "https://fimgs.net/mdimg/perfume/375x500.704.jpg" },
-            { id: 41, name: "L'Interdit", brand: "Givenchy", category: "dama", usage: "Versátil", price: 37, image: "https://fimgs.net/mdimg/perfume/375x500.51448.jpg" },
-            { id: 42, name: "Flora Gorgeous Gardenia", brand: "Gucci", category: "dama", usage: "Día ☀️", price: 36, image: "https://fimgs.net/mdimg/perfume/375x500.68695.jpg" },
-            { id: 43, name: "Sí Eau de Parfum", brand: "Giorgio Armani", category: "dama", usage: "Versátil", price: 37, image: "https://fimgs.net/mdimg/perfume/375x500.18525.jpg" },
-            { id: 44, name: "Good Girl Velvet Fatale", brand: "Carolina Herrera", category: "dama", usage: "Noche 🌙", price: 40, image: "https://fimgs.net/mdimg/perfume/375x500.51631.jpg" },
-            { id: 45, name: "Olympea", brand: "Paco Rabanne", category: "dama", usage: "Versátil", price: 35, image: "https://fimgs.net/mdimg/perfume/375x500.31662.jpg" },
-            { id: 46, name: "Lady Million", brand: "Paco Rabanne", category: "dama", usage: "Noche 🌙", price: 35, image: "https://fimgs.net/mdimg/perfume/375x500.6724.jpg" },
-            { id: 47, name: "Pure XS For Her", brand: "Paco Rabanne", category: "dama", usage: "Noche 🌙", price: 36, image: "https://fimgs.net/mdimg/perfume/375x500.53696.jpg" },
-            { id: 48, name: "Poison Girl", brand: "Dior", category: "dama", usage: "Noche 🌙", price: 39, image: "https://fimgs.net/mdimg/perfume/375x500.35384.jpg" },
-            { id: 49, name: "Her", brand: "Burberry", category: "dama", usage: "Versátil", price: 34, image: "https://fimgs.net/mdimg/perfume/375x500.51681.jpg" },
-            { id: 50, name: "Daisy", brand: "Marc Jacobs", category: "dama", usage: "Día ☀️", price: 33, image: "https://fimgs.net/mdimg/perfume/375x500.1457.jpg" },
-
-            // --- UNISEX (5) ---
-            { id: 51, name: "Tobacco Vanille", brand: "Tom Ford", category: "unisex", usage: "Noche 🌙", price: 40, image: "https://fimgs.net/mdimg/perfume/375x500.2311.jpg" },
-            { id: 52, name: "Lost Cherry", brand: "Tom Ford", category: "unisex", usage: "Noche 🌙", price: 40, image: "https://fimgs.net/mdimg/perfume/375x500.56133.jpg" },
-            { id: 53, name: "Baccarat Rouge 540", brand: "Maison Francis Kurkdjian", category: "unisex", usage: "Versátil", price: 40, image: "https://fimgs.net/mdimg/perfume/375x500.31362.jpg" },
-            { id: 54, name: "Santal 33", brand: "Le Labo", category: "unisex", usage: "Versátil", price: 40, image: "https://fimgs.net/mdimg/perfume/375x500.12961.jpg" },
-            { id: 55, name: "Neroli Portofino", brand: "Tom Ford", category: "unisex", usage: "Día ☀️", price: 40, image: "https://fimgs.net/mdimg/perfume/375x500.5057.jpg" }
+            {
+                id: 1,
+                name: "Y Le Parfum",
+                brand: "Yves Saint Laurent",
+                category: "caballero",
+                usage: "Día ☀️",
+                price: 40,
+                image: "https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                id: 2,
+                name: "Bad Boy Cobalt",
+                brand: "Carolina Herrera",
+                category: "caballero",
+                usage: "Día ☀️",
+                price: 35,
+                image: "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                id: 3,
+                name: "Scandal Le Parfum",
+                brand: "Jean Paul Gaultier",
+                category: "caballero",
+                usage: "Noche 🌙",
+                price: 45,
+                image: "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                id: 4,
+                name: "Good Girl Velvet Fatale",
+                brand: "Carolina Herrera",
+                category: "dama",
+                usage: "Noche 🌙",
+                price: 42,
+                image: "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                id: 5,
+                name: "Tobacco Vanille",
+                brand: "Tom Ford",
+                category: "unisex",
+                usage: "Noche 🌙",
+                price: 55,
+                image: "https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?auto=format&fit=crop&w=600&q=80"
+            }
         ];
 
         let cart = {};
@@ -431,11 +396,24 @@
             filtered.forEach(p => {
                 const qty = cart[p.id] || 0;
                 
+                let actionHTML = '';
+                if (qty === 0) {
+                    actionHTML = `<button class="add-btn" onclick="changeQty(${p.id}, 1)">+</button>`;
+                } else {
+                    actionHTML = `
+                        <div class="cart-controls">
+                            <button class="qty-btn" onclick="changeQty(${p.id}, -1)">-</button>
+                            <span class="qty-display">${qty}</span>
+                            <button class="qty-btn" onclick="changeQty(${p.id}, 1)">+</button>
+                        </div>
+                    `;
+                }
+
                 catalog.innerHTML += `
                     <div class="card">
                         <div class="image-container">
                             <span class="badge-gender">${p.category}</span>
-                            <img src="${p.image}" alt="${p.name}" loading="lazy">
+                            <img src="${p.image}" alt="${p.name}">
                         </div>
                         <div class="card-content">
                             <div>
@@ -446,11 +424,7 @@
                         </div>
                         <div class="card-footer">
                             <div class="price">$${p.price}</div>
-                            <div class="cart-controls">
-                                <button class="qty-btn" onclick="changeQty(${p.id}, -1)" style="opacity: ${qty > 0 ? 1 : 0}; pointer-events: ${qty > 0 ? 'auto' : 'none'};">-</button>
-                                <span class="qty-display">${qty}</span>
-                                <button class="add-btn" onclick="changeQty(${p.id}, 1)">+</button>
-                            </div>
+                            ${actionHTML}
                         </div>
                     </div>
                 `;
@@ -458,7 +432,7 @@
         }
 
         function filterProducts(category) {
-            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.not('active') && btn.classList.remove('active'));
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
             event.target.classList.add('active');
             renderProducts(category);
         }
@@ -517,7 +491,7 @@
 
             message += `%0A*Total a pagar: $${totalPrice}*`;
 
-            const phone = "584244575737";
+            const phone = "584120000000"; // Reemplaza con tu número de WhatsApp
             window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
         }
 
