@@ -31,7 +31,6 @@
 
         header {
             text-align: center;
-            /* Damos más espacio arriba (55px) para que la 'E' de Great Vibes no se corte jamás */
             padding: 55px 20px 25px;
             background: linear-gradient(to bottom, #16161c, var(--bg-color));
             border-bottom: 1px solid var(--border-gold);
@@ -40,7 +39,7 @@
 
         h1 {
             font-family: 'Great Vibes', cursive;
-            font-size: 3rem; /* Ligeramente ajustado para encajar perfecto en móviles */
+            font-size: 3rem;
             font-weight: 400;
             line-height: 1.2;
             margin: 0 0 8px 0;
@@ -94,7 +93,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
             gap: 16px;
-            padding: 15px 15px 30px 15px; /* Margen inferior extra para que el último producto respire */
+            padding: 15px 15px 30px 15px;
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -335,51 +334,66 @@
 
     <script>
         const products = [
-            {
-                id: 1,
-                name: "Y Le Parfum",
-                brand: "Yves Saint Laurent",
-                category: "caballero",
-                usage: "Día ☀️",
-                price: 40,
-                image: "https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=600&q=80"
-            },
-            {
-                id: 2,
-                name: "Bad Boy Cobalt",
-                brand: "Carolina Herrera",
-                category: "caballero",
-                usage: "Día ☀️",
-                price: 35,
-                image: "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=600&q=80"
-            },
-            {
-                id: 3,
-                name: "Scandal Le Parfum",
-                brand: "Jean Paul Gaultier",
-                category: "caballero",
-                usage: "Noche 🌙",
-                price: 45,
-                image: "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=600&q=80"
-            },
-            {
-                id: 4,
-                name: "Good Girl Velvet Fatale",
-                brand: "Carolina Herrera",
-                category: "dama",
-                usage: "Noche 🌙",
-                price: 42,
-                image: "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=600&q=80"
-            },
-            {
-                id: 5,
-                name: "Tobacco Vanille",
-                brand: "Tom Ford",
-                category: "unisex",
-                usage: "Noche 🌙",
-                price: 55,
-                image: "https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?auto=format&fit=crop&w=600&q=80"
-            }
+            // --- CABALLERO (25) ---
+            { id: 1, name: "Bad Boy Extreme", brand: "Carolina Herrera", category: "caballero", usage: "Noche 🌙", price: 35, image: "https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=600&q=80" },
+            { id: 2, name: "Stronger With You", brand: "Giorgio Armani", category: "caballero", usage: "Noche 🌙", price: 33, image: "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=600&q=80" },
+            { id: 3, name: "Le Male Le Parfum", brand: "Jean Paul Gaultier", category: "caballero", usage: "Noche 🌙", price: 32, image: "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=600&q=80" },
+            { id: 4, name: "Ultra Male", brand: "Jean Paul Gaultier", category: "caballero", usage: "Noche 🌙", price: 35, image: "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=600&q=80" },
+            { id: 5, name: "Scandal Pour Homme", brand: "Jean Paul Gaultier", category: "caballero", usage: "Noche 🌙", price: 35, image: "https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?auto=format&fit=crop&w=600&q=80" },
+            { id: 6, name: "Born in Roma Intense", brand: "Valentino", category: "caballero", usage: "Noche 🌙", price: 38, image: "https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=600&q=80" },
+            { id: 7, name: "212 VIP Black", brand: "Carolina Herrera", category: "caballero", usage: "Noche 🌙", price: 35, image: "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=600&q=80" },
+            { id: 8, name: "Acqua Di Gio", brand: "Giorgio Armani", category: "caballero", usage: "Día ☀️", price: 32, image: "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=600&q=80" },
+            { id: 9, name: "Mandarin Sky (Eclat)", brand: "Armaf", category: "caballero", usage: "Día ☀️", price: 35, image: "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=600&q=80" },
+            { id: 10, name: "Sauvage Eau de Parfum", brand: "Dior", category: "caballero", usage: "Noche 🌙", price: 40, image: "https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?auto=format&fit=crop&w=600&q=80" },
+            { id: 11, name: "Bleu de Chanel", brand: "Chanel", category: "caballero", usage: "Día ☀️", price: 40, image: "https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=600&q=80" },
+            { id: 12, name: "Eros Flame", brand: "Versace", category: "caballero", usage: "Noche 🌙", price: 34, image: "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=600&q=80" },
+            { id: 13, name: "Phantom", brand: "Paco Rabanne", category: "caballero", usage: "Día ☀️", price: 36, image: "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=600&q=80" },
+            { id: 14, name: "1 Million Elixir", brand: "Paco Rabanne", category: "caballero", usage: "Noche 🌙", price: 38, image: "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=600&q=80" },
+            { id: 15, name: "Invictus Victory", brand: "Paco Rabanne", category: "caballero", usage: "Noche 🌙", price: 35, image: "https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?auto=format&fit=crop&w=600&q=80" },
+            { id: 16, name: "Y Le Parfum", brand: "Yves Saint Laurent", category: "caballero", usage: "Día ☀️", price: 40, image: "https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=600&q=80" },
+            { id: 17, name: "The Most Wanted", brand: "Azzaro", category: "caballero", usage: "Noche 🌙", price: 37, image: "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=600&q=80" },
+            { id: 18, name: "L'Homme Idéal", brand: "Guerlain", category: "caballero", usage: "Día ☀️", price: 35, image: "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=600&q=80" },
+            { id: 19, name: "Terre d'Hermès", brand: "Hermès", category: "caballero", usage: "Día ☀️", price: 39, image: "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=600&q=80" },
+            { id: 20, name: "Dylan Blue", brand: "Versace", category: "caballero", usage: "Día ☀️", price: 32, image: "https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?auto=format&fit=crop&w=600&q=80" },
+            { id: 21, name: "Gentleman Reserve Privée", brand: "Givenchy", category: "caballero", usage: "Noche 🌙", price: 38, image: "https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=600&q=80" },
+            { id: 22, name: "Boss Bottled Elixir", brand: "Hugo Boss", category: "caballero", usage: "Noche 🌙", price: 36, image: "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=600&q=80" },
+            { id: 23, name: "Polo Blue", brand: "Ralph Lauren", category: "caballero", usage: "Día ☀️", price: 33, image: "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=600&q=80" },
+            { id: 24, name: "K by Dolce & Gabbana", brand: "Dolce & Gabbana", category: "caballero", usage: "Día ☀️", price: 34, image: "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=600&q=80" },
+            { id: 25, name: "Acqua di Gio Profondo", brand: "Giorgio Armani", category: "caballero", usage: "Día ☀️", price: 38, image: "https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?auto=format&fit=crop&w=600&q=80" },
+
+            // --- DAMA (25) ---
+            { id: 26, name: "Good Girl Légère", brand: "Carolina Herrera", category: "dama", usage: "Día ☀️", price: 38, image: "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=600&q=80" },
+            { id: 27, name: "Good Girl Supreme", brand: "Carolina Herrera", category: "dama", usage: "Noche 🌙", price: 40, image: "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=600&q=80" },
+            { id: 28, name: "La Vie Est Belle", brand: "Lancôme", category: "dama", usage: "Día ☀️", price: 35, image: "https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?auto=format&fit=crop&w=600&q=80" },
+            { id: 29, name: "Libre Eau de Parfum", brand: "Yves Saint Laurent", category: "dama", usage: "Día ☀️", price: 38, image: "https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=600&q=80" },
+            { id: 30, name: "Black Opium", brand: "Yves Saint Laurent", category: "dama", usage: "Noche 🌙", price: 38, image: "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=600&q=80" },
+            { id: 31, name: "Scandal Le Parfum", brand: "Jean Paul Gaultier", category: "dama", usage: "Noche 🌙", price: 36, image: "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=600&q=80" },
+            { id: 32, name: "Coco Mademoiselle", brand: "Chanel", category: "dama", usage: "Día ☀️", price: 40, image: "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=600&q=80" },
+            { id: 33, name: "J'adore", brand: "Dior", category: "dama", usage: "Día ☀️", price: 40, image: "https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?auto=format&fit=crop&w=600&q=80" },
+            { id: 34, name: "Bright Crystal", brand: "Versace", category: "dama", usage: "Día ☀️", price: 32, image: "https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=600&q=80" },
+            { id: 35, name: "Idôle", brand: "Lancôme", category: "dama", usage: "Día ☀️", price: 35, image: "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=600&q=80" },
+            { id: 36, name: "Mon Paris", brand: "Yves Saint Laurent", category: "dama", usage: "Noche 🌙", price: 36, image: "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=600&q=80" },
+            { id: 37, name: "Si Passione", brand: "Giorgio Armani", category: "dama", usage: "Noche 🌙", price: 37, image: "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=600&q=80" },
+            { id: 38, name: "Chance Eau Tendre", brand: "Chanel", category: "dama", usage: "Día ☀️", price: 40, image: "https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?auto=format&fit=crop&w=600&q=80" },
+            { id: 39, name: "Alien", brand: "Mugler", category: "dama", usage: "Noche 🌙", price: 38, image: "https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=600&q=80" },
+            { id: 40, name: "Angel", brand: "Mugler", category: "dama", usage: "Noche 🌙", price: 38, image: "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=600&q=80" },
+            { id: 41, name: "L'Interdit", brand: "Givenchy", category: "dama", usage: "Noche 🌙", price: 37, image: "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=600&q=80" },
+            { id: 42, name: "Flora Gorgeous Gardenia", brand: "Gucci", category: "dama", usage: "Día ☀️", price: 36, image: "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=600&q=80" },
+            { id: 43, name: "Sí Eau de Parfum", brand: "Giorgio Armani", category: "dama", usage: "Día ☀️", price: 37, image: "https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?auto=format&fit=crop&w=600&q=80" },
+            { id: 44, name: "Good Girl Velvet Fatale", brand: "Carolina Herrera", category: "dama", usage: "Noche 🌙", price: 40, image: "https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=600&q=80" },
+            { id: 45, name: "Olympea", brand: "Paco Rabanne", category: "dama", usage: "Día ☀️", price: 35, image: "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=600&q=80" },
+            { id: 46, name: "Lady Million", brand: "Paco Rabanne", category: "dama", usage: "Noche 🌙", price: 35, image: "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=600&q=80" },
+            { id: 47, name: "Pure XS For Her", brand: "Paco Rabanne", category: "dama", usage: "Noche 🌙", price: 36, image: "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=600&q=80" },
+            { id: 48, name: "Poison Girl", brand: "Dior", category: "dama", usage: "Noche 🌙", price: 39, image: "https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?auto=format&fit=crop&w=600&q=80" },
+            { id: 49, name: "Her", brand: "Burberry", category: "dama", usage: "Día ☀️", price: 34, image: "https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=600&q=80" },
+            { id: 50, name: "Daisy", brand: "Marc Jacobs", category: "dama", usage: "Día ☀️", price: 33, image: "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=600&q=80" },
+
+            // --- UNISEX (5) ---
+            { id: 51, name: "Tobacco Vanille", brand: "Tom Ford", category: "unisex", usage: "Noche 🌙", price: 40, image: "https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?auto=format&fit=crop&w=600&q=80" },
+            { id: 52, name: "Lost Cherry", brand: "Tom Ford", category: "unisex", usage: "Noche 🌙", price: 40, image: "https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=600&q=80" },
+            { id: 53, name: "Baccarat Rouge 540", brand: "Maison Francis Kurkdjian", category: "unisex", usage: "Noche 🌙", price: 40, image: "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=600&q=80" },
+            { id: 54, name: "Santal 33", brand: "Le Labo", category: "unisex", usage: "Día ☀️", price: 40, image: "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=600&q=80" },
+            { id: 55, name: "Neroli Portofino", brand: "Tom Ford", category: "unisex", usage: "Día ☀️", price: 40, image: "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=600&q=80" }
         ];
 
         let cart = {};
@@ -492,7 +506,7 @@
 
             message += `%0A*Total a pagar: $${totalPrice}*`;
 
-            const phone = "584120000000"; // Reemplaza con tu número de WhatsApp
+            const phone = "584244575737"; // Tu número configurado
             window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
         }
 
