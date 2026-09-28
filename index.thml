@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eclipse Parfums</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #08080a;
+            --card-bg: #121216;
+            --gold-light: #fff2b2;
+            --gold-primary: #e6ca65;
+            --gold-secondary: #b8860b;
+            --border-gold: rgba(212, 175, 55, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main, #f0f0f2);
+            min-height: 100vh;
+            padding-bottom: 90px;
+        }
+
+        header {
+            text-align: center;
+            padding: 25px 20px 20px;
+            background: linear-gradient(to bottom, #141419, var(--bg-color));
+            border-bottom: 1px solid var(--border-gold);
+        }
+
+        /* Título con amarillo claro, brillante y luminosos */
+        h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.0rem;
+            font-weight: 400;
+            line-height: 1.2;
+            margin: 0 0 5px 0;
+            white-space: nowrap;
+            background: linear-gradient(135deg, #fffae0 0%, #ffdf6d 50%, #f3bc30 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 25px rgba(255, 223, 109, 0.6);
+            filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
+        }
+
+        .subtitle {
+            font-size: 0.7rem;
+            color: var(--gold-light);
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            font-weight: 600;
+            opacity: 0.85;
+        }
+
+        .filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 6px;
+            padding: 15px 10px;
+        }
+
+        .filter-btn {
+            background: var(--card-bg);
+            border: 1px solid var(--border-gold);
+            color: #9ba1a6;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .filter-btn.active {
+            background: linear-gradient(135deg, var(--gold-primary), var(--gold-secondary));
+            color: #000;
+            border-color: var(--gold-light);
+            font-weight: 700;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+        }
+
+        .catalog {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 16px;
+            padding: 15px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border-gold);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+        }
+
+        .image-container {
+            width: 100%;
+            height: 190px;
+            background-color: #1a1a22;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover .image-container img {
+            transform: scale(1.05);
+        }
+
+        .badge-gender {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(8, 8, 10, 0.8);
+            border: 1px solid var(--border-gold);
+            color: var(--gold-light);
+            font-size: 0.65rem;
+            padding: 4px 10px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+            backdrop-filter: blur(5px);
+        }
+
+        .card-content {
+            padding: 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            flex-grow: 1;
+        }
+
+        .brand-name {
+            font-size: 0.62rem;
+            color: var(--gold-light);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 600;
+            opacity: 0.75;
+        }
+
+        .perfume-name {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1.2;
+        }
+
+        .usage-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 4px 8px;
+            border-radius: 8px;
+            font-size: 0.7rem;
+            color: var(--gold-light);
+            width: fit-content;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 14px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .price {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--gold-light);
+        }
+
+        .cart-controls {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .qty-btn {
+            background: transparent;
+            border: 1px solid var(--gold-primary);
+            color: var(--gold-light);
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 1rem;
+            line-height: 1;
+            padding-bottom: 1px;
+            transition: all 0.2s ease;
+        }
+
+        .qty-btn:hover {
+            background: var(--gold-primary);
+            color: #000;
+        }
+
+        .qty-display {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #fff;
+            min-width: 15px;
+            text-align: center;
+        }
+
+        .add-btn {
+            background: transparent;
+            border: 1px solid var(--gold-primary);
+            color: var(--gold-light);
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.2rem;
+            font-weight: 700;
+            line-height: 1;
+            padding-bottom: 2px;
+            transition: all 0.2s ease;
+        }
+
+        .add-btn:hover {
+            background: var(--gold-primary);
+            color: #000;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+        }
+
+        .cart-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: #141419;
+            border-top: 1px solid var(--gold-primary);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .cart-bar.visible {
+            transform: translateY(0);
+        }
+
+        .cart-info {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .checkout-btn {
+            background: linear-gradient(135deg, #25d366, #128c7e);
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Eclipse Parfums</h1>
+        <div class="subtitle">El secreto de una presencia magnética</div>
+    </header>
+
+    <div class="filters">
+        <button class="filter-btn active" onclick="filterProducts('todos')">Todos</button>
+        <button class="filter-btn" onclick="filterProducts('caballero')">Caballero</button>
+        <button class="filter-btn" onclick="filterProducts('dama')">Dama</button>
+        <button class="filter-btn" onclick="filterProducts('unisex')">Unisex</button>
+    </div>
+
+    <div class="catalog" id="catalog"></div>
+
+    <div class="cart-bar" id="cartBar">
+        <div class="cart-info" id="cartInfo">0 productos - $0</div>
+        <button class="checkout-btn" onclick="sendToWhatsApp()">
+            Pedir por WhatsApp
+        </button>
+    </div>
+
+    <script>
+        const products = [
+            {
+                id: 1,
+                name: "Y Le Parfum",
+                brand: "Yves Saint Laurent",
+                category: "caballero",
+                usage: "Día ☀️",
+                price: 40,
+                image: "https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                id: 2,
+                name: "Bad Boy Cobalt",
+                brand: "Carolina Herrera",
+                category: "caballero",
+                usage: "Día ☀️",
+                price: 35,
+                image: "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                id: 3,
+                name: "Scandal Le Parfum",
+                brand: "Jean Paul Gaultier",
+                category: "caballero",
+                usage: "Noche 🌙",
+                price: 45,
+                image: "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                id: 4,
+                name: "Good Girl Velvet Fatale",
+                brand: "Carolina Herrera",
+                category: "dama",
+                usage: "Noche 🌙",
+                price: 42,
+                image: "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                id: 5,
+                name: "Tobacco Vanille",
+                brand: "Tom Ford",
+                category: "unisex",
+                usage: "Noche 🌙",
+                price: 55,
+                image: "https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?auto=format&fit=crop&w=600&q=80"
+            }
+        ];
+
+        let cart = {};
+        let currentFilter = 'todos';
+
+        function renderProducts(filter = currentFilter) {
+            currentFilter = filter;
+            const catalog = document.getElementById('catalog');
+            catalog.innerHTML = '';
+
+            const filtered = filter === 'todos' 
+                ? products 
+                : products.filter(p => p.category === filter);
+
+            filtered.forEach(p => {
+                const qty = cart[p.id] || 0;
+                
+                let actionHTML = '';
+                if (qty === 0) {
+                    actionHTML = `<button class="add-btn" onclick="changeQty(${p.id}, 1)">+</button>`;
+                } else {
+                    actionHTML = `
+                        <div class="cart-controls">
+                            <button class="qty-btn" onclick="changeQty(${p.id}, -1)">-</button>
+                            <span class="qty-display">${qty}</span>
+                            <button class="qty-btn" onclick="changeQty(${p.id}, 1)">+</button>
+                        </div>
+                    `;
+                }
+
+                catalog.innerHTML += `
+                    <div class="card">
+                        <div class="image-container">
+                            <span class="badge-gender">${p.category}</span>
+                            <img src="${p.image}" alt="${p.name}">
+                        </div>
+                        <div class="card-content">
+                            <div>
+                                <div class="brand-name">${p.brand}</div>
+                                <div class="perfume-name">${p.name}</div>
+                            </div>
+                            <div class="usage-badge">${p.usage}</div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="price">$${p.price}</div>
+                            ${actionHTML}
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        function filterProducts(category) {
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            renderProducts(category);
+        }
+
+        function changeQty(id, delta) {
+            if (!cart[id]) cart[id] = 0;
+            cart[id] += delta;
+            if (cart[id] <= 0) {
+                delete cart[id];
+            }
+            renderProducts(currentFilter);
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const cartBar = document.getElementById('cartBar');
+            const cartInfo = document.getElementById('cartInfo');
+
+            let totalCount = 0;
+            let totalPrice = 0;
+
+            for (let id in cart) {
+                const product = products.find(p => p.id == id);
+                if (product) {
+                    totalCount += cart[id];
+                    totalPrice += product.price * cart[id];
+                }
+            }
+
+            if (totalCount > 0) {
+                cartBar.classList.add('visible');
+                cartInfo.innerText = `${totalCount} prod. - $${totalPrice}`;
+            } else {
+                cartBar.classList.remove('visible');
+            }
+        }
+
+        function sendToWhatsApp() {
+            let totalCount = 0;
+            for (let id in cart) { totalCount += cart[id]; }
+            if (totalCount === 0) return;
+
+            let message = "Hola, quiero hacer el siguiente pedido de Eclipse Parfums:%0A%0A";
+            let index = 1;
+            let totalPrice = 0;
+
+            for (let id in cart) {
+                const product = products.find(p => p.id == id);
+                if (product) {
+                    const subtotal = product.price * cart[id];
+                    totalPrice += subtotal;
+                    message += `${index}. *${product.name}* (${product.brand}) x${cart[id]} - $${subtotal}%0A`;
+                    index++;
+                }
+            }
+
+            message += `%0A*Total a pagar: $${totalPrice}*`;
+
+            const phone = "584120000000"; // Reemplaza con tu número de WhatsApp
+            window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
+        }
+
+        renderProducts();
+    </script>
+</body>
+</html>
