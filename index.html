@@ -26,25 +26,24 @@
             background-color: var(--bg-color);
             color: var(--text-main, #f0f0f2);
             min-height: 100vh;
-            padding-bottom: 90px;
+            padding-bottom: 110px;
         }
 
         header {
             text-align: center;
-            padding: 35px 20px 25px;
+            /* Damos más espacio arriba (55px) para que la 'E' de Great Vibes no se corte jamás */
+            padding: 55px 20px 25px;
             background: linear-gradient(to bottom, #16161c, var(--bg-color));
             border-bottom: 1px solid var(--border-gold);
-            overflow: visible; /* Evita cualquier corte visual en los trazos */
+            overflow: visible;
         }
 
-        /* Título optimizado para lucir imponente, fluido y sin recortes */
         h1 {
             font-family: 'Great Vibes', cursive;
-            font-size: 3.2rem;
+            font-size: 3rem; /* Ligeramente ajustado para encajar perfecto en móviles */
             font-weight: 400;
-            line-height: 1.3;
-            margin: 0 0 10px 0;
-            padding-top: 5px;
+            line-height: 1.2;
+            margin: 0 0 8px 0;
             background: linear-gradient(135deg, #fffae0 0%, #ffdf6d 40%, #e6ca65 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -95,7 +94,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
             gap: 16px;
-            padding: 15px;
+            padding: 15px 15px 30px 15px; /* Margen inferior extra para que el último producto respire */
             max-width: 1200px;
             margin: 0 auto;
         }
