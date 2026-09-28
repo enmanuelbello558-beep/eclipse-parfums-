@@ -124,16 +124,18 @@
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
         }
 
+        /* Contenedor con fondo negro y ajuste perfecto para las imágenes de perfume */
         .image-container {
             width: 100%;
             height: 190px;
-            background-color: #08080a; /* Fondo negro cambiado */
+            background-color: #0c0c0f; /* Fondo negro elegante */
             position: relative;
             overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 10px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
         }
 
         .image-container img {
@@ -141,6 +143,9 @@
             max-height: 100%;
             object-fit: contain;
             transition: transform 0.5s ease;
+            /* Filtro inteligente para integrar los fondos blancos de las imágenes al diseño negro */
+            mix-blend-mode: luminosity;
+            filter: contrast(120%) brightness(95%);
         }
 
         .card:hover .image-container img {
@@ -218,6 +223,7 @@
             color: var(--gold-light);
         }
 
+        /* Estructura fija para evitar cualquier brinco al presionar */
         .cart-controls {
             display: flex;
             align-items: center;
@@ -334,10 +340,10 @@
     </header>
 
     <div class="filters">
-        <button class="filter-btn active" onclick="filterProducts('todos', this)">Todos</button>
-        <button class="filter-btn" onclick="filterProducts('caballero', this)">Caballero</button>
-        <button class="filter-btn" onclick="filterProducts('dama', this)">Dama</button>
-        <button class="filter-btn" onclick="filterProducts('unisex', this)">Unisex</button>
+        <button class="filter-btn active" onclick="filterProducts('todos')">Todos</button>
+        <button class="filter-btn" onclick="filterProducts('caballero')">Caballero</button>
+        <button class="filter-btn" onclick="filterProducts('dama')">Dama</button>
+        <button class="filter-btn" onclick="filterProducts('unisex')">Unisex</button>
     </div>
 
     <div class="catalog" id="catalog"></div>
@@ -361,4 +367,33 @@
             { id: 7, name: "212 VIP Black", brand: "Carolina Herrera", category: "caballero", usage: "Noche 🌙", price: 35, image: "https://fimgs.net/mdimg/perfume/375x500.46114.jpg" },
             { id: 8, name: "Acqua Di Gio", brand: "Giorgio Armani", category: "caballero", usage: "Día ☀️", price: 32, image: "https://fimgs.net/mdimg/perfume/375x500.410.jpg" },
             { id: 9, name: "Mandarin Sky (Eclat)", brand: "Armaf", category: "caballero", usage: "Versátil 🌐", price: 35, image: "https://fimgs.net/mdimg/perfume/375x500.78768.jpg" },
-            { id: 10, name: "Sauvage Eau de Parfum", brand: "Dior", category: "caballero", usage: "Versátil 🌐", price: 40, image: "
+            { id: 10, name: "Sauvage Eau de Parfum", brand: "Dior", category: "caballero", usage: "Versátil 🌐", price: 40, image: "https://fimgs.net/mdimg/perfume/375x500.31861.jpg" },
+            { id: 11, name: "Bleu de Chanel", brand: "Chanel", category: "caballero", usage: "Versátil 🌐", price: 40, image: "https://fimgs.net/mdimg/perfume/375x500.25967.jpg" },
+            { id: 12, name: "Eros Flame", brand: "Versace", category: "caballero", usage: "Versátil 🌐", price: 34, image: "https://fimgs.net/mdimg/perfume/375x500.52003.jpg" },
+            { id: 13, name: "Phantom", brand: "Paco Rabanne", category: "caballero", usage: "Versátil 🌐", price: 36, image: "https://fimgs.net/mdimg/perfume/375x500.68651.jpg" },
+            { id: 14, name: "1 Million Elixir", brand: "Paco Rabanne", category: "caballero", usage: "Noche 🌙", price: 38, image: "https://fimgs.net/mdimg/perfume/375x500.72477.jpg" },
+            { id: 15, name: "Invictus Victory", brand: "Paco Rabanne", category: "caballero", usage: "Noche 🌙", price: 35, image: "https://fimgs.net/mdimg/perfume/375x500.64808.jpg" },
+            { id: 16, name: "Y Le Parfum", brand: "Yves Saint Laurent", category: "caballero", usage: "Versátil 🌐", price: 40, image: "https://fimgs.net/mdimg/perfume/375x500.67154.jpg" },
+            { id: 17, name: "The Most Wanted", brand: "Azzaro", category: "caballero", usage: "Noche 🌙", price: 37, image: "https://fimgs.net/mdimg/perfume/375x500.66299.jpg" },
+            { id: 18, name: "L'Homme Idéal", brand: "Guerlain", category: "caballero", usage: "Versátil 🌐", price: 35, image: "https://fimgs.net/mdimg/perfume/375x500.25776.jpg" },
+            { id: 19, name: "Terre d'Hermès", brand: "Hermès", category: "caballero", usage: "Día ☀️", price: 39, image: "https://fimgs.net/mdimg/perfume/375x500.17.jpg" },
+            { id: 20, name: "Dylan Blue", brand: "Versace", category: "caballero", usage: "Versátil 🌐", price: 32, image: "https://fimgs.net/mdimg/perfume/375x500.38561.jpg" },
+            { id: 21, name: "Gentleman Reserve Privée", brand: "Givenchy", category: "caballero", usage: "Noche 🌙", price: 38, image: "https://fimgs.net/mdimg/perfume/375x500.72666.jpg" },
+            { id: 22, name: "Boss Bottled Elixir", brand: "Hugo Boss", category: "caballero", usage: "Noche 🌙", price: 36, image: "https://fimgs.net/mdimg/perfume/375x500.85244.jpg" },
+            { id: 23, name: "Polo Blue", brand: "Ralph Lauren", category: "caballero", usage: "Día ☀️", price: 33, image: "https://fimgs.net/mdimg/perfume/375x500.1261.jpg" },
+            { id: 24, name: "K by Dolce & Gabbana", brand: "Dolce & Gabbana", category: "caballero", usage: "Versátil 🌐", price: 34, image: "https://fimgs.net/mdimg/perfume/375x500.56230.jpg" },
+            { id: 25, name: "Acqua di Gio Profondo", brand: "Giorgio Armani", category: "caballero", usage: "Día ☀️", price: 38, image: "https://fimgs.net/mdimg/perfume/375x500.60742.jpg" },
+
+            // --- DAMA (25) ---
+            { id: 26, name: "Good Girl Légère", brand: "Carolina Herrera", category: "dama", usage: "Versátil 🌐", price: 38, image: "https://fimgs.net/mdimg/perfume/375x500.50554.jpg" },
+            { id: 27, name: "Good Girl Supreme", brand: "Carolina Herrera", category: "dama", usage: "Noche 🌙", price: 40, image: "https://fimgs.net/mdimg/perfume/375x500.63784.jpg" },
+            { id: 28, name: "La Vie Est Belle", brand: "Lancôme", category: "dama", usage: "Versátil 🌐", price: 35, image: "https://fimgs.net/mdimg/perfume/375x500.1703.jpg" },
+            { id: 29, name: "Libre Eau de Parfum", brand: "Yves Saint Laurent", category: "dama", usage: "Versátil 🌐", price: 38, image: "https://fimgs.net/mdimg/perfume/375x500.56461.jpg" },
+            { id: 30, name: "Black Opium", brand: "Yves Saint Laurent", category: "dama", usage: "Noche 🌙", price: 38, image: "https://fimgs.net/mdimg/perfume/375x500.25324.jpg" },
+            { id: 31, name: "Scandal Le Parfum", brand: "Jean Paul Gaultier", category: "dama", usage: "Noche 🌙", price: 36, image: "https://fimgs.net/mdimg/perfume/375x500.74972.jpg" },
+            { id: 32, name: "Coco Mademoiselle", brand: "Chanel", category: "dama", usage: "Versátil 🌐", price: 40, image: "https://fimgs.net/mdimg/perfume/375x500.607.jpg" },
+            { id: 33, name: "J'adore", brand: "Dior", category: "dama", usage: "Versátil 🌐", price: 40, image: "https://fimgs.net/mdimg/perfume/375x500.210.jpg" },
+            { id: 34, name: "Bright Crystal", brand: "Versace", category: "dama", usage: "Día ☀️", price: 32, image: "https://fimgs.net/mdimg/perfume/375x500.628.jpg" },
+            { id: 35, name: "Idôle", brand: "Lancôme", category: "dama", usage: "Versátil 🌐", price: 35, image: "https://fimgs.net/mdimg/perfume/375x500.55619.jpg" },
+            { id: 36, name: "Mon Paris", brand: "Yves Saint Laurent", category: "dama", usage: "Versátil 🌐", price: 36, image: "https://fimgs.net/mdimg/perfume/375x500.38883.jpg" },
+            { id: 37, name: "Si Passione", brand: "Giorgio Armani", category: "dama", usage: "Versátil 🌐", price: 37, image: "https://
